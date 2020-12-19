@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 
+// https://icons.expo.fyi 여기 보고 아이콘 가져오기
+
 const weatherOptions = {
     Thunderstorm: {
         iconName: "weather-lightning",
@@ -36,7 +38,7 @@ const weatherOptions = {
     Clear: {
         iconName: "weather-sunny",
         gradient: ["#FF7300", "#FEF253"],
-        title: "Sunny as fuck",
+        title: "Sunny",
         subtitle: "Go get your ass burnt"
     },
     Clouds: {
@@ -65,7 +67,7 @@ const weatherOptions = {
     }
 };
 
-export default function Weather({ temp, condition }) {
+export default function Weather({ temp, condition, name }) {
     return (
         <LinearGradient
             //colors={["#4c669f", "#3b5998", "#192f6a"]}
@@ -75,6 +77,7 @@ export default function Weather({ temp, condition }) {
             <View style={styles.halfContainer}>
                 <MaterialCommunityIcons size={96} name={weatherOptions[condition].iconName || "weather-sunset"} color="white" />
                 <Text style={styles.temp}>{temp}°</Text>
+                <Text>{name}</Text>
             </View>
 
             <View style={{ ...styles.halfContainer, ...styles.textContainer }}>
